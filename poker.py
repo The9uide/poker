@@ -46,9 +46,16 @@ def flush(hand):
 	if suits.count(suits[0]) == 5:
 		return True
 	return False
-
-  
-
-
+def four_of_a_kind(hand):
+        """
+                (hand) -> Bool
+        Return True if hand is four_of_a_kind,
+        Flase otherwise
+        """
+        suits = [r for r,s in hand]
+        for card in suits:
+                if suits.count(card) == 4:
+                        return True
+        return False
 
 
