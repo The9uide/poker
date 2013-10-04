@@ -60,6 +60,10 @@ class TestPoker(unittest.TestCase):
 		actual = poker.straight(sf)
 		expected = True
 		self.assertEqual(actual, expected)
-
+	def test_poker_example_9(self):
+                sf = ['AC','2C','3C','4C','5C']
+                actual = poker.straight(sf)
+                expected = True
+                self.assertEqual(actual,expected)
 if __name__ == '__main__':
     unittest.main(exit=False)
