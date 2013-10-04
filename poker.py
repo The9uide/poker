@@ -32,9 +32,9 @@ def straight(hand):
 	suits = [r for r,s in hand]
 	suits.sort()
 	suit = "".join(suits)
-	print suit,"+++++++"
-	if suit in "1234A123456789TJQKA":
+	if suit in "1234A123456789T789JT89JQT9JKQTAJKQT":
 		return True
+	print suit,"+++++"
 	return False
 
 def flush(hand):
