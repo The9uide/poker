@@ -65,7 +65,7 @@ class TestPoker(unittest.TestCase):
                 actual = poker.straight(sf)
                 expected = True
                 self.assertEqual(actual,expected)
-        def test_poker_example_10(self):
+        def test_poker_example_11(self):
                 fk = ['2H','2C','2D','2S','5C']
                 actual = poker.four_of_a_kind(fk)
                 expected = True
