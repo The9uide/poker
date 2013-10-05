@@ -109,7 +109,13 @@ class TestPoker(unittest.TestCase):
                 fh = ['5S','5H','5D','6C','6S'] 
                 actual = poker.full_house(fh) 
                 expected = True
-                self.assertEqual(actual,expected) 
+                self.assertEqual(actual,expected)
+
+        def test_poker_example_18(self): 
+                fh = ['7S','QH','AD','6C','6S'] 
+                actual = poker.one_pair(fh) 
+                expected = True
+                self.assertEqual(actual,expected)
                 
 if __name__ == '__main__':
     unittest.main(exit=False)
