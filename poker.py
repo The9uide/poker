@@ -120,6 +120,6 @@ def two_pair(hand):
 			pair[card] += 1
 		else:
 			pair[card] = 1
-	if pair.values().count(2) >= 2:
+	if pair.values().count(2) == 2:
 		return True
 	return False
