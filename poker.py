@@ -116,7 +116,7 @@ def two_pair(hand):
 	suits = [r for r,s in hand]
 	pair = {}
 	for card in suits:
-		if card in pair:
+		if card in pair :
 			pair[card] += 1
 		else:
 			pair[card] = 1
