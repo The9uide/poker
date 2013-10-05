@@ -22,7 +22,7 @@ def hand_rank(hand):
 		return 4
 	elif three_of_a_kind(hand):
 		return 3
-	elif two_pair(hand) :
+	elif two_pair(hand):
 		return 3
 	elif one_pair(hand):
 		return 2
@@ -83,7 +83,7 @@ def full_house(hand):
 
 def three_of_a_kind(hand):
 	"""
-		(hand) -> Bool
+	(hand) -> Bool
 	Return True if hand is three_of_a_kind,Flase otherwise
 	"""
 	suits = [r for r,s in hand]
@@ -123,4 +123,3 @@ def two_pair(hand):
 	if pair.values().count(2) >= 2:
 		return True
 	return False
-
