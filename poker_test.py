@@ -112,6 +112,12 @@ class TestPoker(unittest.TestCase):
                 self.assertEqual(actual,expected)
 
         def test_poker_example_18(self): 
+                op = ['AS','5H','TD','6C','6S'] 
+                actual = poker.hand_rank(op) 
+                expected = 2
+                self.assertEqual(actual,expected) 
+
+        def test_poker_example_19(self): 
                 fh = ['7S','QH','AD','6C','6S'] 
                 actual = poker.one_pair(fh) 
                 expected = True
