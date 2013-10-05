@@ -74,5 +74,42 @@ class TestPoker(unittest.TestCase):
                 expected = ['5S','5H','5D','5C','KS']
                 self.assertEqual(actual, expected) 
 
+        def test_poker_example_12(self):
+                fk = ['2H','2C','2D','2S','5C']
+                actual = poker.four_of_a_kind(fk)
+                expected = True
+                self.assertEqual(actual,expected)
+
+        def test_poker_example_13(self):
+                fk = ['5S','5H','5D','5C','KS']
+                actual = poker.hand_rank(fk)
+                expected = 7
+                self.assertEqual(actual,expected)
+                
+        def test_poker_example_14(self):
+                fh = ['5S','5H','5D','6C','6S'] 
+                tk = ['5S','5H','5D','6C','AS']
+                actual = poker.poker([fh,tk]) 
+                expected = ['5S','5H','5D','6C','6S'] 
+                self.assertEqual(actual, expected)
+
+        def test_poker_example_15(self): 
+                fh = ['5S','5H','5D','6C','6S'] 
+                actual = poker.hand_rank(fh) 
+                expected = 6
+                self.assertEqual(actual,expected)
+                
+        def test_poker_example_16(self): 
+                sf = ['JC','TC','9C','8C','7C'] 
+                actual = poker.full_house(sf) 
+                expected = False
+                self.assertEqual(actual,expected)
+                
+        def test_poker_example_17(self): 
+                fh = ['5S','5H','5D','6C','6S'] 
+                actual = poker.full_house(fh) 
+                expected = True
+                self.assertEqual(actual,expected) 
+                
 if __name__ == '__main__':
     unittest.main(exit=False)
