@@ -11,7 +11,15 @@ def hand_rank(hand):
 	Return rank of hand
 	"""
 	if straight_flush(hand):
-		return 8
+                return 8
+	elif four_of_a_kind(hand):
+                return 7
+        elif full_house(hand):
+                return 6
+        elif flush(hand):
+                return 5
+        elif straight(hand):
+                return 4
 	else:
 		return 0
 
@@ -34,7 +42,7 @@ def straight(hand):
 	suit = "".join(suits)
 	if suit in "2345A123456789T789JT89JQT9JKQTAJKQT":
 		return True
-	print suit,"+++++"
+	
 	return False
 
 def flush(hand):
@@ -46,6 +54,7 @@ def flush(hand):
 	if suits.count(suits[0]) == 5:
 		return True
 	return False
+
 def four_of_a_kind(hand):
         """
                 (hand) -> Bool
@@ -58,4 +67,12 @@ def four_of_a_kind(hand):
                         return True
         return False
 
+def full_house(hand): 
+    """ 
+        (hand) -> Bool 
+    Return True if hand is full_house,Flase otherwise 
+    """
+    if three_of_a_kind(hand) and one_pair(hand): 
+        return True
+    return False
 
