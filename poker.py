@@ -77,9 +77,7 @@ def full_house(hand):
 		(hand) -> Bool
 	Return True if hand is full_house,Flase otherwise
 	"""
-	if three_of_a_kind(hand) and one_pair(hand):
-		return True
-	return False
+	return three_of_a_kind(hand) and one_pair(hand)
 
 def three_of_a_kind(hand):
 	"""
