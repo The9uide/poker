@@ -62,8 +62,7 @@ def four_of_a_kind(hand):
 	Return True if hand is four_of_a_kind,Flase otherwise
 	"""
 	suits = [r for r,s in hand]
-	for card in suits:
-		return  suits.count(card) == 4  ##
+	return suits.count(suits[0]) == 4 or suits.count(suits[1]) == 4 
 
 def full_house(hand):
 	"""
@@ -78,8 +77,7 @@ def three_of_a_kind(hand):
 	Return True if hand is three_of_a_kind,Flase otherwise
 	"""
 	suits = [r for r,s in hand]
-	for card in suits:
-		return suits.count(card) == 3
+	return suits.count(suits[0]) == 3 or suits.count(suits[1]) == 3 or suits.count(suits[2]) == 3
 
 def one_pair(hand):
 	"""
