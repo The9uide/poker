@@ -10,7 +10,9 @@ def hand_rank(hand):
 		(hand) -> int
 	Return rank of hand
 	"""
-	if straight_flush(hand):
+	if check_card(hand):
+		return 0
+	elif straight_flush(hand):
 		return 8
 	elif four_of_a_kind(hand):
 		return 7
@@ -27,7 +29,7 @@ def hand_rank(hand):
 	elif one_pair(hand):
 		return 2
 	else:
-		return 0
+		return 1
 
 def straight_flush(hand):
 	"""
@@ -36,7 +38,6 @@ def straight_flush(hand):
 	"""
 	return straight(hand) and flush(hand)
 		
-
 def straight(hand):
 	"""
 		(hand) -> Bool
@@ -45,9 +46,7 @@ def straight(hand):
 	suits = [r for r,s in hand]
 	suits.sort()
 	suit = "".join(suits)
-	if suit in "2345A123456789T789JT89JQT9JKQTAJKQT":return True
-
-	return False
+	return suit in "2345A123456789T789JT89JQT9JKQTAJKQT"
 
 def flush(hand):
 	"""
@@ -55,8 +54,7 @@ def flush(hand):
 	Return True if hand is flush,Flase otherwise 
 	"""
 	suits = [s for r,s in hand]
-	if suits.count(suits[0]) == 5:return True
-	return False
+	return suits.count(suits[0]) == 5
 
 def four_of_a_kind(hand):
 	"""
@@ -65,8 +63,7 @@ def four_of_a_kind(hand):
 	"""
 	suits = [r for r,s in hand]
 	for card in suits:
-		if suits.count(card) == 4:return True
-	return False
+		return  suits.count(card) == 4  ##
 
 def full_house(hand):
 	"""
@@ -82,8 +79,7 @@ def three_of_a_kind(hand):
 	"""
 	suits = [r for r,s in hand]
 	for card in suits:
-		if suits.count(card) == 3:return True
-	return False
+		return suits.count(card) == 3
 
 def one_pair(hand):
 	"""
@@ -96,8 +92,7 @@ def one_pair(hand):
 		if card in pair:pair[card] += 1
 		else:
 			pair[card] = 1
-	if pair.values().count(2) == 1:return True
-	return False
+	return pair.values().count(2) == 1
 
 def two_pair(hand):
 	"""
@@ -110,5 +105,27 @@ def two_pair(hand):
 		if card in pair :pair[card] += 1
 		else:
 			pair[card] = 1
-	if pair.values().count(2) == 2:return True
-	return False
+	return pair.values().count(2) == 2
+
+def check_card(hand):
+	"""
+		(hand) -> Bool
+	Return True if card in hand is in gen_card,Flase otherwise
+	"""	
+	really = False
+	for card in hand:
+		if not card in gen_card():
+			really = True
+	return really
+	
+def gen_card():
+	"""
+	generate cards (52 cards)
+	"""
+	rank = '23456789TJQKA'
+	suits = []
+	for i in rank:
+		for j in 'CDHS':
+			suits.append(i+j)
+	return suits
+
