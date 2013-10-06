@@ -34,9 +34,8 @@ def straight_flush(hand):
 		(hand) -> bool
 	Return True if hand is straight_flush,Flase otherwise 
 	"""
-	if straight(hand) and flush(hand):
-		return True
-	return False
+	return straight(hand) and flush(hand)
+		
 
 def straight(hand):
 	"""
