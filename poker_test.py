@@ -238,11 +238,30 @@ class TestPoker(unittest.TestCase):
 		expected = False
 		self.assertEqual(actual,expected)
 
-	def test_poker_example_38(self):
+	def test_poker_example_39(self):
 		ot = ['5S','5Y','3F','6C','KS']
-		actual = poker.check_card(hc)
+		actual = poker.check_card(ot)
 		expected = True
 		self.assertEqual(actual,expected)
+
+	def test_poker_example_40(self):
+		tk = ['6S','5H','5D','5C','KS']
+		actual = poker.three_of_a_kind(tk)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_41(self):
+		tk = ['6S','KH','5D','5C','5S']
+		actual = poker.three_of_a_kind(tk)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_42(self):
+		fk = ['KS','5H','5D','5C','5S']
+		actual = poker.hand_rank(fk)
+		expected = 7
+		self.assertEqual(actual,expected)
+
 
 if __name__ == '__main__':
 	unittest.main(exit=False)
