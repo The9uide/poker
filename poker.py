@@ -45,8 +45,7 @@ def straight(hand):
 	suits = [r for r,s in hand]
 	suits.sort()
 	suit = "".join(suits)
-	if suit in "2345A123456789T789JT89JQT9JKQTAJKQT":
-		return True
+	if suit in "2345A123456789T789JT89JQT9JKQTAJKQT":return True
 
 	return False
 
@@ -56,8 +55,7 @@ def flush(hand):
 	Return True if hand is flush,Flase otherwise 
 	"""
 	suits = [s for r,s in hand]
-	if suits.count(suits[0]) == 5:
-		return True
+	if suits.count(suits[0]) == 5:return True
 	return False
 
 def four_of_a_kind(hand):
@@ -67,8 +65,7 @@ def four_of_a_kind(hand):
 	"""
 	suits = [r for r,s in hand]
 	for card in suits:
-		if suits.count(card) == 4:
-			return True
+		if suits.count(card) == 4:return True
 	return False
 
 def full_house(hand):
@@ -85,8 +82,7 @@ def three_of_a_kind(hand):
 	"""
 	suits = [r for r,s in hand]
 	for card in suits:
-		if suits.count(card) == 3:
-			return True
+		if suits.count(card) == 3:return True
 	return False
 
 def one_pair(hand):
@@ -97,12 +93,10 @@ def one_pair(hand):
 	suits = [r for r,s in hand]
 	pair = {}
 	for card in suits:
-		if card in pair:
-			pair[card] += 1
+		if card in pair:pair[card] += 1
 		else:
 			pair[card] = 1
-	if pair.values().count(2) == 1:
-		return True
+	if pair.values().count(2) == 1:return True
 	return False
 
 def two_pair(hand):
@@ -110,4 +104,11 @@ def two_pair(hand):
 		(hand) -> Bool
 	Return True if hand is two_pair,Flase otherwise
 	"""
-	return one_pair(hand) and one_pair(hand)
+	suits = [r for r,s in hand]
+	pair = {}
+	for card in suits:
+		if card in pair :pair[card] += 1
+		else:
+			pair[card] = 1
+	if pair.values().count(2) == 2:return True
+	return False
