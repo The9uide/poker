@@ -110,13 +110,4 @@ def two_pair(hand):
 		(hand) -> Bool
 	Return True if hand is two_pair,Flase otherwise
 	"""
-	suits = [r for r,s in hand]
-	pair = {}
-	for card in suits:
-		if card in pair :
-			pair[card] += 1
-		else:
-			pair[card] = 1
-	if pair.values().count(2) == 2:
-		return True
-	return False
+	return one_pair(hand) and one_pair(hand)
