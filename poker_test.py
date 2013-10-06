@@ -219,6 +219,11 @@ class TestPoker(unittest.TestCase):
 		expected = False
 		self.assertEqual(actual,expected)
 	
+        def test_poker_example_36(self):
+		tp = ['5S','4H','6D','6C','7S']
+		actual = poker.one_pair(tp)
+		expected = True
+		self.assertEqual(actual,expected)
 
 if __name__ == '__main__':
     unittest.main(exit=False)
