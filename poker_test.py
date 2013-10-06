@@ -158,8 +158,67 @@ class TestPoker(unittest.TestCase):
 		actual = poker.two_pair(tp)
 		expected = True
 		self.assertEqual(actual,expected)
+		
+	def test_poker_example_26(self):
+                fk = ['4S','4H','4D','4C','KS']
+		actual = poker.three_of_a_kind(fk)
+		expected = False
+		self.assertEqual(actual,expected)
 
+	def test_poker_example_27(self):
+                tk = ['3S','3H','3D','4C','KS']
+		actual = poker.three_of_a_kind(tk)
+		expected = True
+		self.assertEqual(actual,expected)
 
+	def test_poker_example_28(self):
+                tp = ['5S','5H','6D','6C','KS']
+		actual = poker.three_of_a_kind(tp)
+		expected = False
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_29(self):
+                op = ['AS','5H','TD','6C','6S']
+		actual = poker.three_of_a_kind(op)
+		expected = False
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_30(self):
+		tk = ['5S','5H','5D','6C','KS']
+		actual = poker.three_of_a_kind(tk)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_31(self):
+		tp = ['5S','5H','8D','8C','KS']
+		actual = poker.two_pair(tp)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_32(self):
+		tp = ['5S','5H','7D','7C','KS']
+		actual = poker.two_pair(tp)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_33(self):
+		tp = ['5S','5H','6D','6C','KS']
+		actual = poker.two_pair(tp)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_34(self):
+		op = ['5S','5H','7D','6C','KS']
+		actual = poker.one_pair(op)
+		expected = True
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_35(self):
+		tp = ['5S','5H','6D','6C','KS']
+		actual = poker.one_pair(tp)
+		expected = False
+		self.assertEqual(actual,expected)
+	
 
 if __name__ == '__main__':
     unittest.main(exit=False)
