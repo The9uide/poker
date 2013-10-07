@@ -1,6 +1,6 @@
 def poker(hands):
 	"""
-		([hand, hand, habd, ...])->hand
+		([hand, hand, hand, ...])->hand
 	Return the best hand from list of hand
 	"""
 	return max(hands, key=hand_rank)
@@ -13,23 +13,23 @@ def hand_rank(hand):
 	if check_card(hand):
 		return 0
 	elif straight_flush(hand):
-		return 8
+		return 8 + max(compare_card(hand))
 	elif four_of_a_kind(hand):
-		return 7
+		return 7 + max(compare_card(hand))
 	elif full_house(hand):
-		return 6
+		return 6 + max(compare_card(hand))
 	elif flush(hand):
-		return 5
+		return 5 + max(compare_card(hand))
 	elif straight(hand):
-		return 4
+		return 4 + max(compare_card(hand))
 	elif three_of_a_kind(hand):
-		return 3
+		return 3 + max(compare_card(hand))
 	elif two_pair(hand):
-		return 3
+		return 3 + max(compare_card(hand))
 	elif one_pair(hand):
-		return 2
+		return 2 + max(compare_card(hand))
 	else:
-		return 1
+		return 1 + max(compare_card(hand))
 
 def straight_flush(hand):
 	"""
@@ -127,3 +127,28 @@ def gen_card():
 			suits.append(i+j)
 	return suits
 
+def multi_winner(hands):
+	"""
+		([hand, hand, hand, ...])-> [hand, hand, ...]
+	Return list of many best hand from list of hand
+	"""
+	winner = []
+	winner.append(poker(hands))
+	while hand_rank(winner[-1]) == hand_rank(winner[0]):		
+		hands.remove(winner[-1])
+		if hand_rank(winner[-1]) == hand_rank(winner[0]):
+			if len(hands) == 0:
+				return winner
+			winner.append(poker(hands))
+	winner.pop(-1)
+	return winner
+
+def compare_card(hand):
+	"""
+		(hand) -> [int, int, int, ...] 
+	Return 
+	"""
+	quality = []
+	for card in hand:
+		quality.append((gen_card().index(card)/4)/100.0)
+	return quality
