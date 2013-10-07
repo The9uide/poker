@@ -14,7 +14,7 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_2(self):
 		sf = ['6C','5C','9C','8C','7C']
 		actual = poker.hand_rank(sf)
-		expected = 8
+		expected = 8.07
 		self.assertEqual(actual, expected)
 
 	def test_poker_example_3(self):
@@ -37,9 +37,9 @@ class TestPoker(unittest.TestCase):
 		self.assertEqual(actual, expected)
 
 	def test_poker_example_6(self):
-		sf = ['JC','TC','9C','8C','7C']
+		sf = ['JC','TC','9C','8C','QC']
 		actual = poker.hand_rank(sf)
-		expected = 8
+		expected = 8.10
 		self.assertEqual(actual, expected)
 
 	def test_poker_example_7(self):
@@ -82,7 +82,7 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_13(self):
 		fk = ['5S','5H','5D','5C','KS']
 		actual = poker.hand_rank(fk)
-		expected = 7
+		expected = 7.11
 		self.assertEqual(actual,expected)
 
 	def test_poker_example_14(self):
@@ -95,7 +95,7 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_15(self):
 		fh = ['5S','5H','5D','6C','6S']
 		actual = poker.hand_rank(fh)
-		expected = 6
+		expected = 6.04
 		self.assertEqual(actual,expected)
 
 	def test_poker_example_16(self):
@@ -113,7 +113,7 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_18(self):
 		op = ['AS','5H','TD','6C','6S']
 		actual = poker.hand_rank(op)
-		expected = 2
+		expected = 2.12
 		self.assertEqual(actual,expected)
 
 	def test_poker_example_19(self):
@@ -125,7 +125,7 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_20(self):
 		tk = ['5S','5H','5D','6C','AS']
 		actual = poker.hand_rank(tk)
-		expected = 3
+		expected = 3.12
 		self.assertEqual(actual,expected)
 
 	def test_poker_example_21(self):
@@ -144,7 +144,7 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_23(self):
 		tp = ['5S','5H','6D','6C','KS']
 		actual = poker.hand_rank(tp)
-		expected = 3
+		expected = 3.11
 		self.assertEqual(actual,expected)
 
 	def test_poker_example_24(self):
@@ -259,9 +259,80 @@ class TestPoker(unittest.TestCase):
 	def test_poker_example_42(self):
 		fk = ['KS','5H','5D','5C','5S']
 		actual = poker.hand_rank(fk)
-		expected = 7
+		expected = 7.11
 		self.assertEqual(actual,expected)
 
+	def test_poker_example_43(self):
+		fk1 = ['KS','5H','5D','5C','5S']
+		fk2 = ['KS','5H','5D','5C','5S']
+		fk3 = ['KS','5H','5D','5C','5S']
+		hc1 = ['5S','4H','2D','9C','7S']
+		actual = poker.multi_winner([fk1,fk2,fk3,hc1])
+		expected = [ ['KS','5H','5D','5C','5S'], ['KS','5H','5D','5C','5S'],['KS','5H','5D','5C','5S']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_44(self):
+		fk1 = ['KS','5H','5D','5C','5S']
+		fk2 = ['KH','5H','5C','5C','5D']
+		fk3 = ['KS','5H','5D','5C','5S']
+		actual = poker.multi_winner([fk1,fk2,fk3])
+		expected = [ ['KS','5H','5D','5C','5S'], ['KH','5H','5C','5C','5D'],['KS','5H','5D','5C','5S']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_45(self):
+		hc1 = ['5S','4H','2D','9C','7S']
+		hc2 = ['5S','4H','2D','9C','7S']
+		hc3 = ['5S','4H','2D','9C','7S']
+		actual = poker.multi_winner([hc1,hc2,hc3])
+		expected = [ ['5S','4H','2D','9C','7S'], ['5S','4H','2D','9C','7S'], ['5S','4H','2D','9C','7S']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_46(self):
+		hc1 = ['5S','4H','2D','9C','7S']
+		hc2 = ['5S','4H','2D','9C','8S']
+		hc3 = ['5S','8H','2D','9C','7S']
+		ot1 = ['5S','5Y','3F','6C','KS']
+		actual = poker.multi_winner([hc1,hc2,hc3,ot1])
+		expected = [ ['5S','4H','2D','9C','7S'], ['5S','4H','2D','9C','8S'], ['5S','8H','2D','9C','7S']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_47(self):
+		hc1 = ['5S','4H','2D','TC','7S']
+		hc2 = ['5S','4H','2D','9C','8S']
+		hc3 = ['5S','8H','2D','9C','7S']
+		ot1 = ['5S','5Y','3F','6C','KS']
+		actual = poker.multi_winner([hc1,hc2,hc3,ot1])
+		expected = [['5S','4H','2D','TC','7S']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_48(self):
+		fk1 = ['AS','5H','5D','5C','5S']
+		fk2 = ['QS','5H','5D','5C','5S']
+		fk3 = ['KS','5H','5D','5C','5S']
+		actual = poker.multi_winner([fk1,fk2,fk3])
+		expected = [['AS','5H','5D','5C','5S']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_49(self):
+		fk = ['AS','5H','5D','5C','5S']
+		actual = poker.compare_card(fk)
+		expected = [0.12,0.03,0.03,0.03,0.03]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_50(self):
+		sf = ['2C','3C','4C','5C','6C']
+		actual = poker.compare_card(sf)
+		expected = [0,0.01,0.02,0.03,0.04]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_51(self):
+		sf1 = ['5C','6C','9C','8C','7C']
+		sf2 = ['TC','6C','9C','8C','7C']
+		fk1 = ['5S','5H','5D','5C','AS']
+		fk2 = ['5S','5H','5D','5C','KS']
+		actual = poker.multi_winner([sf1,sf2,fk1,fk2])
+		expected = [['TC','6C','9C','8C','7C']]
+		self.assertEqual(actual, expected)
 
 if __name__ == '__main__':
 	unittest.main(exit=False)
