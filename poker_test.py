@@ -366,37 +366,36 @@ class TestPoker(unittest.TestCase):
 		self.assertEqual(actual,expected)
 
 	def test_poker_example_52(self):
-                sf1 = ['TC','JC','QC','KC','AC']
-                sf2 = ['TS','JS','QS','KS','AS']
-                sf3 = ['TD','JD','QD','KD','AD']
-                actual = poker.multi_winner([sf1,sf2,sf3])
-                expected = [['TC','JC','QC','KC','AC'],['TS','JS','QS','KS','AS'],['TD','JD','QD','KD','AD']]
-                self.assertEqual(actual,expected)
+		sf1 = ['TC','JC','QC','KC','AC']
+		sf2 = ['TS','JS','QS','KS','AS']
+		sf3 = ['TD','JD','QD','KD','AD']
+		actual = poker.multi_winner([sf1,sf2,sf3])
+		expected = [['TC','JC','QC','KC','AC'],['TS','JS','QS','KS','AS'],['TD','JD','QD','KD','AD']]
+		self.assertEqual(actual,expected)
 
-        def test_poker_example_53(self):
-                sf1 = ['TC','6C','9C','8C','7C']
-                sf2 = ['6S','TS','9S','8S','7S']
-                actual = poker.multi_winner([sf1,sf2])
-                expected = [['TC','6C','9C','8C','7C'],['6S','TS','9S','8S','7S']]
-                self.assertEqual(actual,expected)
+	def test_poker_example_53(self):
+		sf1 = ['TC','6C','9C','8C','7C']
+		sf2 = ['6S','TS','9S','8S','7S']
+		actual = poker.multi_winner([sf1,sf2])
+		expected = [['TC','6C','9C','8C','7C'],['6S','TS','9S','8S','7S']]
+		self.assertEqual(actual,expected)
 
-        def test_poker_example_54(self):
-                sf1 = ['TC','6C','9C','8C','7C']
-                sf2 = ['6S','TS','9S','8S','7S']
-                sf3 = ['JD','TD','9D','8D','QD']
-                actual = poker.multi_winner([sf1,sf2,sf3])
-                expected = [['JD','TD','9D','8D','QD']]
-                self.assertEqual(actual,expected)
-                
-        def test_poker_example_55(self):
-                sf1 = ['5C','6C','9C','8C','7C']
-                sf2 = ['6S','TS','9S','8S','7S']
-                fk1 = ['5S','5H','5D','5C','KS']
-                fk2 = ['6S','6H','6D','6C','KS']
-                actual = poker.multi_winner([sf1,sf2,fk1,fk2])
-                expected = [['6S','TS','9S','8S','7S']]
-                self.assertEqual(actual,expected)
+	def test_poker_example_54(self):
+		sf1 = ['TC','6C','9C','8C','7C']
+		sf2 = ['6S','TS','9S','8S','7S']
+		sf3 = ['JD','TD','9D','8D','QD']
+		actual = poker.multi_winner([sf1,sf2,sf3])
+		expected = [['JD','TD','9D','8D','QD']]
+		self.assertEqual(actual,expected)
+
+	def test_poker_example_55(self):
+		sf1 = ['5C','6C','9C','8C','7C']
+		sf2 = ['6S','TS','9S','8S','7S']
+		fk1 = ['5S','5H','5D','5C','KS']
+		fk2 = ['6S','6H','6D','6C','KS']
+		actual = poker.multi_winner([sf1,sf2,fk1,fk2])
+		expected = [['6S','TS','9S','8S','7S']]
+		self.assertEqual(actual,expected)
 
 if __name__ == '__main__':
 	unittest.main(exit=False)
-
