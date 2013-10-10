@@ -46,9 +46,9 @@ Poker is a family of card games involving betting and individual play, whereby t
 
 Mr. Rapeevit Jiwyam 56070111
 
-Mr.
+Mr. Trithep Ratanapipob 56070048
 
-Mr.
+Mr. Tanat Srisukhato 56070059
 ### Reference ###
 
 1.http://en.wikipedia.org/wiki/Poker
