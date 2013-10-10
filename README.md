@@ -1,6 +1,6 @@
 ## THIS IS POKER GAME  ##
 
-**MarkdownPad** is a full-featured Markdown editor for Windows.
+ 
 
 ### What is poker? ###
 
@@ -45,8 +45,12 @@ Poker is a family of card games involving betting and individual play, whereby t
 ### Created By. ###
 
 Mr. Rapeevit Jiwyam 56070111
+
 Mr.
+
 Mr.
 ### Reference ###
 
 1.http://en.wikipedia.org/wiki/Poker
+
+2.http://th.wikipedia.org/wiki/%E0%B9%82%E0%B8%9B%E0%B9%8A%E0%B8%81%E0%B9%80%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B9%8C
