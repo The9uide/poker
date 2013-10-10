@@ -11,7 +11,7 @@ def hand_rank(hand):
 	Return rank of hand
 	"""
 	if check_card(hand):
-		return 0
+		return (-1)
 	elif straight_flush(hand):
 		return 8 + max(compare_card(hand))
 	elif four_of_a_kind(hand):
@@ -142,7 +142,7 @@ def multi_winner(hands):
 	"""
 	winner = []
 	winner.append(poker(hands))
-	while hand_rank(winner[-1]) == hand_rank(winner[0]):		
+	while hand_rank(winner[-1]) == hand_rank(winner[0]) :		
 		hands.remove(winner[-1])
 		if hand_rank(winner[-1]) == hand_rank(winner[0]):
 			if len(hands) == 0:
@@ -193,8 +193,11 @@ def max_two_pair(hand,single = False):
 def start_poker():
 	player = []
 	for i in xrange(input("How many player? : ")):
-		player.append(input("Player"+ str(i+1)+" : "))
+		py = input("Player"+ str(i+1)+" : ")
+		if check_card(py): exit()
+		player.append(py)
 	player_winner = multi_winner(player)
+	if len(player_winner) == 0: exit()
 	for i in player_winner:
 		print str(i)
 
